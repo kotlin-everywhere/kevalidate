@@ -4,6 +4,7 @@ build/
 
 #nodejs
 node_modules/
+dist/
 
 #intellij
 .idea/
