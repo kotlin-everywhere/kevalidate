@@ -2,5 +2,8 @@
 .gradle/
 build/
 
+#nodejs
+node_modules/
+
 #intellij
 .idea/
