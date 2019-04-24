@@ -26,33 +26,6 @@ class TestKevalidate {
         )
     }
 
-    @Test
-    fun testFirst() {
-        // 이름은 공백이 될 수 없다. 나이는 18세 이상이 되어야한다.
-        val dataValidator = first<TestValidateData, TestValidateError>(
-                { if (it.name.isEmpty()) listOf(TestValidateError.EmptyName) else listOf() },
-                { if (it.age < 18) listOf(TestValidateError.TooYoung) else listOf() }
-        )
-
-        // 이름이 비어있고, 나이가 18세 미만인 경우
-        assertEquals(
-                listOf(TestValidateError.EmptyName),
-                dataValidator(TestValidateData(name = "", age = 10))
-        )
-
-        // 이름이 있고, 나이가 18세 미만인 경우
-        assertEquals(
-                listOf(TestValidateError.TooYoung),
-                dataValidator(TestValidateData(name = "john", age = 17))
-        )
-
-        // 이름이 있고, 나이가 18세 이상인 경우
-        assertEquals(
-                listOf(),
-                dataValidator(TestValidateData(name = "john", age = 23))
-        )
-    }
-
     data class TestValidateData(val name: String, val age: Int)
 
     sealed class TestValidateError {
