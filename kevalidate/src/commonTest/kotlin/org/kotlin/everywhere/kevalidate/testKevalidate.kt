@@ -6,7 +6,6 @@ import kotlin.test.assertEquals
 class TestKevalidate {
     @Test
     fun testAll() {
-
         // 이름은 공백이 될 수 없다.
         val dataValidator = all<TestValidateData, TestValidateError>(
                 { if (it.name.isEmpty()) listOf(TestValidateError.EmptyName) else listOf() },
@@ -25,7 +24,6 @@ class TestKevalidate {
                 dataValidator(TestValidateData(name = "john", age = 23))
         )
     }
-
     data class TestValidateData(val name: String, val age: Int)
 
     sealed class TestValidateError {
