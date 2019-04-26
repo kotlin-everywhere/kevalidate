@@ -19,6 +19,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+                implementation(kotlin("reflect"))
                 implementation("kotlin-everywhere:keresult:0.1")
             }
         }
